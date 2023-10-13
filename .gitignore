@@ -1,0 +1,6 @@
+# created by virtualenv automatically
+.idea
+include
+Lib
+Scripts
+*.cfg
