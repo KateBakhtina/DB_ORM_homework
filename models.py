@@ -1,5 +1,6 @@
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String, ForeignKey, Float
 from sqlalchemy.orm import declarative_base, relationship
+
 
 Base = declarative_base()
 
@@ -17,7 +18,7 @@ class Book(Base):
 
     book_id = Column(Integer, primary_key=True)
     title = Column(String(length=50), nullable=False)
-    publisher_id = Column(Integer, ForeignKey=True, nullable=False)
+    publisher_id = Column(Integer, ForeignKey("publisher.publisher_id"), nullable=False)
 
     publisher = relationship(Publisher, backref="book")
 
@@ -34,4 +35,10 @@ class Shop(Base):
         return f"{self.shop_id}: {self.name}"
 
 class Sale(Base):
-    pass
+    __tablename__ = "sale"
+
+    sale_id = Column(Integer, primary_key=True)
+    price = Column(Float(2), nullable=False)
+    # date_sale = 
+    stock_id = Column(Integer) #Foreign_key
+    amount = Column(Integer, nullable=False)
