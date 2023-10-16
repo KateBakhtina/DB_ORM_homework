@@ -15,8 +15,11 @@
 # session = Session()
 
 
-import dotenv
-print(os.getenv('NAME_DRIVER'))
+
+from dotenv import dotenv_values
+config = dotenv_values()        
+print(config.get('NAME_DRIVER'))
+
 
 
 
