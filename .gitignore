@@ -4,3 +4,5 @@ include
 Lib
 Scripts
 *.cfg
+.env
+__pycache__/*.pyc__pycache__/*.pyc
